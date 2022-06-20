@@ -1,0 +1,74 @@
+{% extends 'home.html' %}
+{% block content %}
+<style>
+
+*{
+          box-sizing: border-box;
+      }
+  
+body {
+  font-family: "Raleway", sans-serif;
+  background-color:black;
+  margin:0%;
+  padding:0%;
+}
+
+.card-body{
+
+  border: 1px solid #ccc;
+  margin: 7px auto;
+  box-shadow: 0 0 5px #333;
+  position:relative;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    background-color: #2b4162;
+    background-image: linear-gradient(315deg, #2b4162 0%, #12100e 74%);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 41px 32px;
+    max-width: 390px;
+}
+
+.card-title{
+     font-family: 'Open Sans', sans-serif;
+     font-weight:700;
+     font-size:20px;
+
+}
+</style>
+<div >
+  <section id="best-features" class="text-center">
+               <h2 class="mb-5 mt-5 font-weight-bold" style="color:#C2B280;padding-top:100px;margin: 0%;font-family: "Raleway", sans-serif;">COURSES</h2>
+                <!-- class row for description-->
+                <div class="row d-flex justify-content-center mb-4">
+                  <!-- class column -->
+                  <div class="col-md-8">
+                    <p class="grey-text"></p>
+                  </div>
+                </div>
+                <!-- class row2 for cards -->
+                <div class="row d-flex justify-content-center mb-3">
+  
+                  <div class="row d-flex justify-content-center mb-3" style=" margin-right:170px;">
+                    {% for p in picture %}
+                    <style>
+                    
+                    </style>
+                    <div class="card mb-5 mr-4 ml-4 box-shadow-hover" style="max-width: 350px; height:260px;margin-left: 130px;">
+                      <div class="row no-gutters" style="border-width:2px;">
+                                <div class="col-md-8">
+                                  <div class="card-body">
+                                    <h4 class="card-title" style="color:#FFFFFF;">{{p.name}}</h4>
+                                    <a class="nav-link" href="{{p.link}}" style="color:#C2B280;text-decoration:none;"><strong>learn course</strong></a>        
+                                    <p class="card-text"><small class="text-muted"></small></p>
+                                  </div>
+                                </div>
+                      </div>
+                      </div>
+                    {% endfor %}
+                    </div>
+      </section>
+      {%endblock%}
