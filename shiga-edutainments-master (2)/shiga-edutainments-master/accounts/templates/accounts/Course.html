@@ -1,0 +1,191 @@
+{% extends 'home.html' %} {% load static %}
+{% block content %}
+{% if registered%}
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Raleway", sans-serif;
+    margin: 0%;
+    background-color: black;
+  }
+  h4 {
+    color: #c2b280;
+    position: absolute;
+    left: 40%;
+    top: 15%;
+    font-size: 30px;
+  }
+  form {
+    font-family: "Poppins", sans-serif;
+    width: 70%;
+    margin: auto;
+  }
+  fieldset {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 7px auto;
+    box-shadow: 0 0 5px #333;
+    background-color: rgba(255, 255, 255, 0.13);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    background-color: #2b4162;
+    background-image: linear-gradient(315deg, #2b4162 0%, #12100e 74%);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    padding: 60px 200px;
+  }
+  label {
+    color: #d3d3d3;
+    display: block;
+    line-height: 1.6;
+    margin-bottom: 5px;
+    margin-left: -80px;
+    color: "white";
+    font-size: 20px;
+    font-weight: 700;
+  }
+  input {
+    display: block;
+    height: 45px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+    color: white;
+  }
+
+  .col-md-6 {
+    width: 203px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    left: 25%;
+    z-index: 0;
+    border-radius: 10px;
+    bottom: -30px;
+  }
+
+  .col-md-6:before {
+    content: "";
+    background: linear-gradient(
+      45deg,
+      #c2b280,
+      #ffffff,
+      #c2b280,
+      #ffffff,
+      #c2b280,
+      #ffffff,
+      #c2b280,
+      #ffffff,
+      #c2b280
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+  }
+
+  .col-md-6:active {
+    color: #000;
+  }
+
+  .col-md-6:active:after {
+    background: transparent;
+  }
+
+  .col-md-6:hover:before {
+    opacity: 1;
+  }
+
+  .col-md-6:after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+  }
+</style>
+<h4>COURSE REGISTERED</h4>
+{% else %}
+<form action="" method="post" style="padding-top: 10%">
+  {% csrf_token %}
+  <fieldset style="color: white; padding: 2%; background: black">
+    <div id="div_id_name" class="form-group">
+      <label for="id_name" class="requiredField">
+        <strong>Name</strong><span class="asteriskField">*</span>
+      </label>
+      <div class="">
+        <input
+          type="text"
+          name="name"
+          class="textinput textInput form-control"
+          required=""
+          id="id_name"
+          style="margin-left: 20%; width: 330px"
+        />
+      </div>
+    </div>
+    <div id="div_id_des" class="form-group">
+      <label for="id_des" class="requiredField">
+        <strong>link</strong><span class="asteriskField">*</span>
+      </label>
+      <div class="">
+        <input
+          type="text"
+          name="link"
+          class="textinput textInput form-control"
+          required=""
+          id="id_des"
+          style="margin-left: 20%; width: 330px"
+        />
+      </div>
+      <div id="div_id_des" class="form-group">
+        <label for="id_des" class="requiredField">
+          <strong>coupon</strong><span class="asteriskField">*</span>
+        </label>
+        <div class="">
+          <input
+            type="text"
+            name="link"
+            class="textinput textInput form-control"
+            required=""
+            id="id_des"
+            style="margin-left: 20%; width: 326px"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <input type="submit" value="Register" class="btn btn-primary btn-block" />
+    </div>
+  </fieldset>
+</form>
+{% endif %}
+ {% endblock %}
